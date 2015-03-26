@@ -1,8 +1,9 @@
 #!/bin/sh
-npm install -g geotype
-curl -O http://www2.census.gov/geo/tiger/GENZ2013/cb_2013_us_state_5m.zip
-unzip cb_2013_us_state_5m.zip
+npm install geotype
+layer=cb_2013_us_state_5m
+curl -O http://www2.census.gov/geo/tiger/GENZ2013/$layer.zip
+unzip -f $layer.zip
 ogr2ogr -F GeoJSON -t_srs EPSG:4326 \
-  -sql "SELECT * FROM states WHERE NAME = 'California'" \
-  /dev/stdout cb_2013_us_state_5m.shp \
-  | geotype -z 11 --no-color
+  -sql "SELECT * FROM $layer WHERE NAME = 'California'" \
+  /dev/stdout $layer.shp \
+  | ./node_modules/.bin/geotype -z 11 --no-color
