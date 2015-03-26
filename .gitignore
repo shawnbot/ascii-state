@@ -1,0 +1,4 @@
+.*.sw?
+cb_2013_us_state_5m.*
+state_5m.ea.iso.xml
+node_modules
