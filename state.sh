@@ -1,9 +1,11 @@
 #!/bin/sh
-state="${1:-California}"
+state="${1:-CA}"
 layer=cb_2013_us_state_5m
-curl -O http://www2.census.gov/geo/tiger/GENZ2013/$layer.zip
-unzip -f $layer.zip
+if [ ! -f $layer.shp ]; then
+    curl -O http://www2.census.gov/geo/tiger/GENZ2013/$layer.zip
+    unzip $layer.zip
+fi
 ogr2ogr -F GeoJSON -t_srs EPSG:4326 \
-  -sql "SELECT * FROM $layer WHERE NAME = '$state'" \
+  -sql "SELECT * FROM $layer WHERE STUSPS = '$state' OR NAME = '$state'" \
   /dev/stdout $layer.shp \
   | ./node_modules/.bin/geotype -z 11 --no-color
