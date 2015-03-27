@@ -4,7 +4,7 @@
 3. Run this to get your own ASCII California:
 
 ```sh
-./state.sh
+./ascii-state
                                                                 
   ::::::::::::::::::::::::::                                    
   ::::::::::::::::::::::::::                                    
@@ -47,8 +47,8 @@
 Or supply another state's name or 2-letter code:
 
 ```sh
-./state Massachusetts
-./state NY
+./ascii-state Massachusetts
+./ascii-state NY
 ```
 
 The first time this runs it'll download US state boundaries from the
@@ -58,6 +58,6 @@ The first time this runs it'll download US state boundaries from the
 If you want it bigger, try tacking on a higher zoom level (the default is 10):
 
 ```sh
-./state CA 11
-./state TX 9
+./ascii-state CA 11
+./ascii-state TX 9
 ```
