@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Make ASCII states!",
   "main": "index.js",
+  "bin": {
+    "ascii-state": "state.sh"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
