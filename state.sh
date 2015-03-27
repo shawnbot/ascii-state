@@ -6,6 +6,6 @@ if [ ! -f $layer.shp ]; then
     unzip $layer.zip
 fi
 ogr2ogr -F GeoJSON -t_srs EPSG:4326 \
-  -sql "SELECT * FROM $layer WHERE STUSPS = '$state' OR NAME = '$state'" \
-  /dev/stdout $layer.shp \
-  | ./node_modules/.bin/geotype -z 11 --no-color
+    -sql "SELECT * FROM $layer WHERE STUSPS = '$state' OR NAME = '$state'" \
+    /dev/stdout $layer.shp \
+    | ./node_modules/.bin/geotype -z ${2:-11} --no-color
