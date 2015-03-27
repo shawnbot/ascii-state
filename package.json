@@ -4,7 +4,7 @@
   "description": "Make ASCII states!",
   "main": "index.js",
   "bin": {
-    "ascii-state": "state.sh"
+    "ascii-state": "ascii-state"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
